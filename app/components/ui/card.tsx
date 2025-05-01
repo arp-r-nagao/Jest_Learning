@@ -6,12 +6,12 @@ type Props = {
 };
 
 export const Card = ({title, content, button, style}: Props) => {
-  const textColor = style ? style : 'text-white';
+  const contentsStyle = style ? style : 'text-white';
   return (
     <div className="card bg-neutral text-neutral-content w-auto">
       <div className="card-body items-center text-center">
-        <h2 className={`card-title ${textColor}`}>{title}</h2>
-        <p className={textColor}>{content}</p>
+        <h2 className={`card-title ${contentsStyle}`}>{title}</h2>
+        <p className={contentsStyle}>{content}</p>
         <div className="card-actions justify-center mt-3">{button}</div>
       </div>
     </div>
