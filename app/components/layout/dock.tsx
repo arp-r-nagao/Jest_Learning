@@ -1,6 +1,6 @@
 export const Dock = () => {
   return (
-    <div className="dock bg-neutral text-neutral-content">
+    <div className="dock bg-neutral text-neutral-content fixed">
       <button>
         <svg className="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <g fill="currentColor" strokeLinejoin="miter" strokeLinecap="butt">
@@ -8,7 +8,7 @@ export const Dock = () => {
               points="1 11 12 2 23 11"
               fill="none"
               stroke="currentColor"
-              stroke-miterlimit="10"
+              strokeMiterlimit="10"
               strokeWidth="2"
             ></polyline>
             <path
@@ -16,7 +16,7 @@ export const Dock = () => {
               fill="none"
               stroke="currentColor"
               strokeLinecap="square"
-              stroke-miterlimit="10"
+              strokeMiterlimit="10"
               strokeWidth="2"
             ></path>
             <line
@@ -27,7 +27,7 @@ export const Dock = () => {
               fill="none"
               stroke="currentColor"
               strokeLinecap="square"
-              stroke-miterlimit="10"
+              strokeMiterlimit="10"
               strokeWidth="2"
             ></line>
           </g>
@@ -42,7 +42,7 @@ export const Dock = () => {
               points="3 14 9 14 9 17 15 17 15 14 21 14"
               fill="none"
               stroke="currentColor"
-              stroke-miterlimit="10"
+              strokeMiterlimit="10"
               strokeWidth="2"
             ></polyline>
             <rect
@@ -55,7 +55,7 @@ export const Dock = () => {
               fill="none"
               stroke="currentColor"
               strokeLinecap="square"
-              stroke-miterlimit="10"
+              strokeMiterlimit="10"
               strokeWidth="2"
             ></rect>
           </g>
@@ -73,7 +73,7 @@ export const Dock = () => {
               fill="none"
               stroke="currentColor"
               strokeLinecap="square"
-              stroke-miterlimit="10"
+              strokeMiterlimit="10"
               strokeWidth="2"
             ></circle>
             <path
@@ -81,7 +81,7 @@ export const Dock = () => {
               fill="none"
               stroke="currentColor"
               strokeLinecap="square"
-              stroke-miterlimit="10"
+              strokeMiterlimit="10"
               strokeWidth="2"
             ></path>
           </g>
