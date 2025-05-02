@@ -1,6 +1,6 @@
 export const Dock = () => {
   return (
-    <div className="dock bg-neutral text-neutral-content fixed">
+    <div className="dock bg-neutral text-neutral-content sticky bottom-0 z-10">
       <button>
         <svg className="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <g fill="currentColor" strokeLinejoin="miter" strokeLinecap="butt">
