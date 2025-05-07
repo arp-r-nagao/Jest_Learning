@@ -30,7 +30,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <main className="h-screen flex flex-col overflow-scroll">
           <Header />
-          <div className="flex-grow flex justify-center items-center">
+          <div className="flex-grow flex justify-center items-center px-5">
             <Providers>{children}</Providers>
           </div>
           <Dock />
