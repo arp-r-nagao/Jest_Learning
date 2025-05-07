@@ -3,6 +3,7 @@ import {Geist, Geist_Mono} from 'next/font/google';
 import './globals.css';
 import {Header} from './components/layout/header';
 import {Dock} from './components/layout/dock';
+import {Providers} from './providers';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -27,9 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="nord">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <main className="h-screen flex flex-col">
+        <main className="h-screen flex flex-col overflow-scroll">
           <Header />
-          <div className="flex-grow flex justify-center items-center">{children}</div>
+          <div className="flex-grow flex justify-center items-center">
+            <Providers>{children}</Providers>
+          </div>
           <Dock />
         </main>
       </body>
