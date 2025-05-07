@@ -11,7 +11,7 @@ export default function Top() {
     </>
   );
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div>
       <Card
         title="初めてのJestハンズオン"
         content={content}
