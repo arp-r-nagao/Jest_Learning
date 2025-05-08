@@ -1,11 +1,11 @@
-import {PropsItem} from '../matcher/test/page';
+import {PropsItem} from './page';
 
 type Props = {
   test: PropsItem;
   userAnswer: string;
 };
 
-export const useJudgment = ({test, userAnswer}: Props) => {
+export const judgment = ({test, userAnswer}: Props) => {
   const answer = test.answer;
   if (userAnswer === answer) {
     return true;

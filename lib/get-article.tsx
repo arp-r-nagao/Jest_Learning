@@ -16,7 +16,7 @@ type ArticleResponse = {
 
 type Props = {
   contentTitle: string;
-  children: string;
+  children: React.ReactNode;
   route: string;
 };
 
@@ -58,7 +58,7 @@ export default function Article({contentTitle, children, route}: Props) {
         <div dangerouslySetInnerHTML={{__html: contentData}} />
       </article>
       <div className="flex justify-end mt-10">
-        <Button children={children} buttonFn={handleClick} />
+        <Button buttonFn={handleClick}>{children}</Button>
       </div>
     </div>
   );

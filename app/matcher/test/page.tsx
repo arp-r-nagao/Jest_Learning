@@ -3,7 +3,7 @@ import {Button} from '@/app/components/ui/button';
 import {Test} from '@/lib/testFormat';
 import {matcherTest} from './matcher';
 import {useEffect, useState} from 'react';
-import {useJudgment} from '@/app/hooks/judgment';
+import {judgment} from '@/app/matcher/test/judgment';
 import {Step} from '@/app/components/ui/step';
 
 type PropsCode = {
@@ -23,11 +23,11 @@ export default function TestPage() {
   const [judge, setJudge] = useState<boolean | null>();
   const test = matcherTest();
 
+  const result = judgment({test: test[testNum], userAnswer});
   const button = () => {
     // 判定ボタンクリックで判定を行う
     const handleClick = () => {
-      const judge = useJudgment({test: test[testNum], userAnswer});
-      setJudge(judge);
+      setJudge(result);
     };
 
     // 次へボタンで次の問題へ進む(正解時のみ)
@@ -39,13 +39,17 @@ export default function TestPage() {
     };
 
     if (judge === true) {
-      return <Button children="次へ" buttonFn={next} style="btn-outline btn-secondary" />;
+      return (
+        <Button buttonFn={next} style="btn-outline btn-secondary">
+          次へ
+        </Button>
+      );
     } else {
-      return <Button children="判定" buttonFn={handleClick} />;
+      return <Button buttonFn={handleClick}>判定</Button>;
     }
   };
 
-  const result = () => {
+  const resultMessage = () => {
     if (judge === null) {
       return '';
     } else if (judge === true) {
@@ -73,7 +77,7 @@ export default function TestPage() {
         <Test test={test[testNum]} onChangeAnswer={(val) => setUserAnswer(val)} key={testNum} />
       </div>
       <div className="flex justify-end">
-        <p className={`mr-3 my-auto font-bold ${judge ? 'text-red-600' : 'text-primary'}`}>{result()}</p>
+        <p className={`mr-3 my-auto font-bold ${judge ? 'text-red-600' : 'text-primary'}`}>{resultMessage()}</p>
         {button()}
       </div>
       <Step length={test.length} target={testNum} />

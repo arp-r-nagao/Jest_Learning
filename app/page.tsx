@@ -15,7 +15,7 @@ export default function Top() {
       <Card
         title="初めてのJestハンズオン"
         content={content}
-        button={<Button children="学習を始める" style="btn-outline btn-secondary text-white " />}
+        button={<Button style="btn-outline btn-secondary text-white ">学習を始める</Button>}
       />
     </div>
   );
