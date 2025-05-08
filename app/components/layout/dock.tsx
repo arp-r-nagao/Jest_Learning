@@ -1,7 +1,17 @@
+'use client';
+
+import {useRouter} from 'next/navigation';
+
 export const Dock = () => {
+  const router = useRouter();
+  const topPage = () => {
+    router.push('/');
+  };
+
   return (
-    <div className="dock bg-neutral text-neutral-content fixed">
-      <button>
+    <div className="dock bg-neutral text-neutral-content sticky bottom-0 z-10">
+      {/* ホームボタン */}
+      <button onClick={() => topPage()}>
         <svg className="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <g fill="currentColor" strokeLinejoin="miter" strokeLinecap="butt">
             <polyline

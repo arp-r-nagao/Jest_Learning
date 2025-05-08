@@ -1,6 +1,15 @@
 @import 'tailwindcss';
+@plugin "@tailwindcss/typography";
 @plugin "daisyui" {
   themes: nord --default dark --prefersdark;
+}
+
+@layer base {
+  h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px 0;
+  }
 }
 
 :root {
