@@ -7,7 +7,7 @@ export type TestProps = {
   onChangeAnswer?: (value: string) => void;
 };
 
-export const Test = ({test, onChangeAnswer}: TestProps) => {
+export const Question = ({test, onChangeAnswer}: TestProps) => {
   const [value, setValue] = useState<string>('');
   const {title, question, codes} = test;
 
