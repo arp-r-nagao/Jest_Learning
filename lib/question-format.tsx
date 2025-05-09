@@ -1,5 +1,5 @@
 'use client';
-import {PropsItem} from '@/app/matcher/test/page';
+import {PropsItem} from '@/app/lessons/easy/matcher/test/page';
 import {useEffect, useState} from 'react';
 
 export type TestProps = {
