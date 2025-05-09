@@ -71,15 +71,17 @@ export const TestPage = ({test, setJudge, setTestNum, judge, testNum}: Props) =>
   return (
     <div className="Matcher_test">
       <div className="max-w-full">
-        <h1 className="border-l-8 border-secondary pl-3 bg-neutral text-white px-2 w-3/5">確認テスト</h1>
-        <p className="my-5">各問題の要件を満たせるように、適切な記述を入力してください。</p>
+        <h1 className="border-l-8 border-secondary pl-3 bg-neutral text-white px-2 w-3/5 mb-1 md:mb-2">確認テスト</h1>
+        <p className="mb-5 md:mb-8">各問題の要件を満たせるように、適切な記述を入力してください。</p>
         <Question test={test[testNum]} onChangeAnswer={(val) => setUserAnswer(val)} key={testNum} />
       </div>
       <div className="flex justify-end">
         <p className={`mr-3 my-auto font-bold ${judge ? 'text-red-600' : 'text-primary'}`}>{resultMessage()}</p>
         {button()}
       </div>
-      <Step length={test.length} target={testNum} />
+      <div className="flex justify-center mt-5 md:mt-8">
+        <Step length={test.length} target={testNum} />
+      </div>
     </div>
   );
 };

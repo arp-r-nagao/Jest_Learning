@@ -4,8 +4,8 @@ type Props = {
 };
 
 export const Step = ({length, target}: Props) => {
-  const targetNum = '★';
-  const prev = '✔︎';
+  const targetNum = '🔥';
+  const prev = '✔';
   const next = '?';
 
   const statusSymbol = (num: number) => {

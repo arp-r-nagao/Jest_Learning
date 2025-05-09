@@ -24,14 +24,14 @@ export const Question = ({test, onChangeAnswer}: TestProps) => {
     }
   };
 
-  const rendered = [];
+  const editor = [];
   for (let i = 0; i < codes.length; i++) {
     const code = codes[i];
 
     if (code.code === 'editor') {
       const prev = codes[i - 1];
       const next = codes[i + 1];
-      rendered.push(
+      editor.push(
         <div key={i} className="flex items-center my-2">
           {prev && (
             <pre>
@@ -52,7 +52,7 @@ export const Question = ({test, onChangeAnswer}: TestProps) => {
     } else if (codes[i + 1]?.code === 'editor' && i !== 0) {
       continue;
     } else {
-      rendered.push(
+      editor.push(
         <pre key={i} className="whitespace-pre-wrap">
           <code>{code.code}</code>
         </pre>
@@ -61,10 +61,10 @@ export const Question = ({test, onChangeAnswer}: TestProps) => {
   }
 
   return (
-    <div className="mb-8">
-      <p className="font-bold text-white text-center bg-gray-600 rounded w-fit px-2 py-0.5 md:mt-10">{title}</p>
-      <p className="text-sm text-gray-600 my-2 md:text-md">{question}</p>
-      <div className="mockup-code">{rendered}</div>
+    <div className="mb-4">
+      <p className="font-bold text-white text-center bg-gray-600 rounded w-fit px-2 py-0.5 md:mt-12">{title}</p>
+      <p className="text-sm text-gray-600 mt-1 md:text-md">{question}</p>
+      <div className="mockup-code mt-1 md:mt-3">{editor}</div>
     </div>
   );
 };

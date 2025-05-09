@@ -1,40 +1,31 @@
 'use client';
+import {JSX} from 'react';
 import {Button} from '../components/ui/button';
 import {Card} from '../components/ui/card';
 import {Modal} from '../components/ui/modal';
+import {normalLessonLists} from '@/lib/modal-contents';
+import {LessonListProps} from '../../lib/lesson-summary-modal';
 
-export const normal = () => {
-  // 中級編の概要
-  const content = (
-    <>
-      <span className="font-bold underline mb-2">慣れてきたらこちらにチャレンジ💪</span>
-      <br />
-      問題をひたすら解いて、
-      <br />
-      知識を定着させましょう！
-    </>
-  );
+type Props = {
+  normalLessonSummary: React.ReactNode;
+  openModal: () => void;
+  modalContent: (easyLessonList: LessonListProps[], level: string) => JSX.Element;
+};
 
-  // 詳細モーダルの表示
-  const openModal = () => {
-    const modal = document.getElementById('normal-lessons') as HTMLDialogElement;
-    if (modal) {
-      modal.showModal();
-    }
-  };
-
+export const normal = ({normalLessonSummary, openModal, modalContent}: Props) => {
+  const normalContents = normalLessonLists;
   return (
-    <div className="normal">
+    <div className="easy">
       <Card
         title="中級編"
-        content={content}
+        content={normalLessonSummary}
         button={
           <Button style="text-primary w-28" buttonFn={openModal}>
             Start
           </Button>
         }
       />
-      <Modal modalContent={content} />
+      <Modal modalContent={modalContent(normalContents, '中級編')} />
     </div>
   );
 };
