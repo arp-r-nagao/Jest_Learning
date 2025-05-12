@@ -13,5 +13,8 @@ export default function MatcherTestPage() {
     setTestNum(0);
   }, []);
 
+  const currentLesson = 'Matcher';
+  const nextLesson = 'Async';
+
   return <TestPage test={test} setJudge={setJudge} setTestNum={setTestNum} judge={judge} testNum={testNum} />;
 }

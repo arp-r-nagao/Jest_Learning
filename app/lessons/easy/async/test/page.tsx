@@ -13,5 +13,8 @@ export default function AsyncTestPage() {
     setTestNum(0);
   }, []);
 
+  const currentLesson = 'Async';
+  const nextLesson = 'Setup&Teardown';
+
   return <TestPage test={test} setJudge={setJudge} setTestNum={setTestNum} judge={judge} testNum={testNum} />;
 }
