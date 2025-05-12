@@ -4,6 +4,9 @@ import {judgment} from '@/lib/judgment';
 import {useEffect, useState} from 'react';
 import {Question} from './question-format';
 import {Step} from '@/app/components/ui/step';
+import {openModal} from './lesson-summary-modal';
+import {Modal} from '@/app/components/ui/modal';
+import {LessonClearModal} from './lesson-clear-modal';
 
 type PropsCode = {
   code: string;
@@ -45,7 +48,8 @@ export const TestPage = ({test, setJudge, setTestNum, judge, testNum}: Props) =>
       if (testNum < test.length - 1 && judge === true) {
         setTestNum(testNum + 1);
       } else if (testNum === test.length - 1 && judge === true) {
-        // TODO:モーダルを開く処理
+        // 最後の問題終了時モーダルを開く
+        openModal();
       }
     };
 
@@ -84,6 +88,7 @@ export const TestPage = ({test, setJudge, setTestNum, judge, testNum}: Props) =>
       <div className="flex justify-center mt-5 md:mt-8">
         <Step length={test.length} target={testNum} />
       </div>
+      <Modal modalContent={LessonClearModal()} />
     </div>
   );
 };
