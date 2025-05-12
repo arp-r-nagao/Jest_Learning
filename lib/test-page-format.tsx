@@ -42,8 +42,10 @@ export const TestPage = ({test, setJudge, setTestNum, judge, testNum}: Props) =>
     // 次へボタンで次の問題へ進む(正解時のみ)
     const next = () => {
       setJudge(null);
-      if (testNum < test.length && judge === true) {
+      if (testNum < test.length - 1 && judge === true) {
         setTestNum(testNum + 1);
+      } else if (testNum === test.length - 1 && judge === true) {
+        // TODO:モーダルを開く処理
       }
     };
 
