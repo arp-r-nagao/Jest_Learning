@@ -1,6 +1,6 @@
 'use client';
 import {Button} from '@/app/components/ui/button';
-import {judgment} from '@/app/lessons/easy/matcher/test/judgment';
+import {judgment} from '@/lib/judgment';
 import {useEffect, useState} from 'react';
 import {Question} from './question-format';
 import {Step} from '@/app/components/ui/step';

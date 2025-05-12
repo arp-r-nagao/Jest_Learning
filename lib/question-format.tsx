@@ -1,6 +1,6 @@
 'use client';
-import {PropsItem} from '@/app/lessons/easy/matcher/test/page';
 import {useEffect, useState} from 'react';
+import {PropsItem} from './judgment';
 
 export type TestProps = {
   test: PropsItem;
@@ -28,6 +28,7 @@ export const Question = ({test, onChangeAnswer}: TestProps) => {
   for (let i = 0; i < codes.length; i++) {
     const code = codes[i];
 
+    // editorの場合は前後のコードと並べて表示する
     if (code.code === 'editor') {
       const prev = codes[i - 1];
       const next = codes[i + 1];
@@ -38,9 +39,7 @@ export const Question = ({test, onChangeAnswer}: TestProps) => {
               <code>{prev.code}</code>
             </pre>
           )}
-          <div>
-            <input type="text" className="input input-accent input-sm text-neutral font-bold" onChange={handleChange} />
-          </div>
+          <input type="text" className="input input-accent input-sm text-neutral font-bold" onChange={handleChange} />
           {next && (
             <pre>
               <code>{next.code}</code>
@@ -49,8 +48,38 @@ export const Question = ({test, onChangeAnswer}: TestProps) => {
         </div>
       );
       i += 1;
-    } else if (codes[i + 1]?.code === 'editor' && i !== 0) {
-      continue;
+    } else if (code.code === 'editorStartSentence') {
+      // editorStartSentenceの場合は後ろのコードと並べて表示する
+      const next = codes[i + 1];
+      editor.push(
+        <div key={i} className="flex items-center my-2">
+          <input
+            type="text"
+            className="input input-accent input-sm text-neutral font-bold ml-6"
+            onChange={handleChange}
+          />
+          {next && (
+            <pre>
+              <code>{next.code}</code>
+            </pre>
+          )}
+        </div>
+      );
+      i += 1;
+    } else if (code.code === 'editorEndSentence') {
+      // editorStartSentenceの場合は前のコードと並べて表示する
+      const prev = codes[i - 1];
+      editor.push(
+        <div key={i} className="flex items-center my-2">
+          {prev && (
+            <pre>
+              <code>{prev.code}</code>
+            </pre>
+          )}
+          <input type="text" className="input input-accent input-sm text-neutral font-bold" onChange={handleChange} />
+        </div>
+      );
+      i += 1;
     } else {
       editor.push(
         <pre key={i} className="whitespace-pre-wrap">
