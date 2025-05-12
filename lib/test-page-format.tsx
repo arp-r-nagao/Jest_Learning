@@ -71,8 +71,8 @@ export const TestPage = ({test, setJudge, setTestNum, judge, testNum}: Props) =>
   };
 
   return (
-    <div className="Matcher_test">
-      <div className="max-w-full">
+    <div className="test_page">
+      <div className="max-w-xs md:max-w-fit">
         <h1 className="border-l-8 border-secondary pl-3 bg-neutral text-white px-2 w-3/5 mb-1 md:mb-2">確認テスト</h1>
         <p className="mb-5 md:mb-8">各問題の要件を満たせるように、適切な記述を入力してください。</p>
         <Question test={test[testNum]} onChangeAnswer={(val) => setUserAnswer(val)} key={testNum} />
