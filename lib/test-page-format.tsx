@@ -1,6 +1,6 @@
 'use client';
 import {Button} from '@/app/components/ui/button';
-import {judgment} from '@/app/lessons/easy/matcher/test/judgment';
+import {judgment} from '@/lib/judgment';
 import {useEffect, useState} from 'react';
 import {Question} from './question-format';
 import {Step} from '@/app/components/ui/step';
@@ -42,8 +42,10 @@ export const TestPage = ({test, setJudge, setTestNum, judge, testNum}: Props) =>
     // 次へボタンで次の問題へ進む(正解時のみ)
     const next = () => {
       setJudge(null);
-      if (testNum < test.length && judge === true) {
+      if (testNum < test.length - 1 && judge === true) {
         setTestNum(testNum + 1);
+      } else if (testNum === test.length - 1 && judge === true) {
+        // TODO:モーダルを開く処理
       }
     };
 
@@ -69,8 +71,8 @@ export const TestPage = ({test, setJudge, setTestNum, judge, testNum}: Props) =>
   };
 
   return (
-    <div className="Matcher_test">
-      <div className="max-w-full">
+    <div className="test_page">
+      <div className="max-w-xs md:max-w-fit">
         <h1 className="border-l-8 border-secondary pl-3 bg-neutral text-white px-2 w-3/5 mb-1 md:mb-2">確認テスト</h1>
         <p className="mb-5 md:mb-8">各問題の要件を満たせるように、適切な記述を入力してください。</p>
         <Question test={test[testNum]} onChangeAnswer={(val) => setUserAnswer(val)} key={testNum} />

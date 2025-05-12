@@ -1,4 +1,13 @@
-import {PropsItem} from './page';
+type PropsCode = {
+  code: string;
+};
+
+export type PropsItem = {
+  title: string;
+  question: string;
+  codes: PropsCode[];
+  answer: string;
+};
 
 type Props = {
   test: PropsItem;

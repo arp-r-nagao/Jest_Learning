@@ -1,5 +1,5 @@
 // テストする関数のインポート
-import {judgment} from '../judgment';
+import {judgment} from '../../../../../../lib/judgment';
 
 describe('useJudgment', () => {
   let testCase: {

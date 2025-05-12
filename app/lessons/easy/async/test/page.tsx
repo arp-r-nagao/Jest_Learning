@@ -1,12 +1,12 @@
 'use client';
-import {matcherTest} from './matcher';
 import {useEffect, useState} from 'react';
 import {TestPage} from '@/lib/test-page-format';
+import {asyncTest} from './async';
 
-export default function MatcherTestPage() {
+export default function AsyncTestPage() {
   const [testNum, setTestNum] = useState(0);
   const [judge, setJudge] = useState<boolean | null>();
-  const test = matcherTest();
+  const test = asyncTest();
 
   // 初回レンダリング時はカウントを0にリセット
   useEffect(() => {
